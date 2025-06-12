@@ -1,5 +1,8 @@
+require('dotenv').config()
 const express = require('express')
- const app = express()
+const connectToDatabase = require('./database')
+const app = express()
+connectToDatabase()
 
  app.get("/",(req,res)=>{
     
@@ -14,7 +17,6 @@ const express = require('express')
     })
 })
 
- app.listen(3000,()=>{
+ app.listen(process.env.PORT,()=>{
     console.log("NodeJs project has started")
  })
-//  mongodb+srv://withjanak:<db_password>@cluster0.j7iiuep.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
